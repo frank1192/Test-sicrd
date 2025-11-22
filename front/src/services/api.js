@@ -47,6 +47,8 @@ api.interceptors.response.use(
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
         localStorage.removeItem('user');
+        // Redirect to login page when refresh token fails
+        // Note: For apps using React Router, use navigate() instead
         window.location.href = '/';
         return Promise.reject(refreshError);
       }
